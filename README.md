@@ -21,3 +21,6 @@ pip install .
 ```
 # Usage
 After installation, you can use the modified scanpy package in your Python environment. Here's a basic example of how to use the newly implemented functions. The scanpy tutorial with its original functions can be found on the following link: https://scanpy-tutorials.readthedocs.io/en/latest/index.html 
+## New functions
+bla bla
+## Exporting functions
