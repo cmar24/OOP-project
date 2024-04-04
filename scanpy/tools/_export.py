@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from scipy.sparse import csr_matrix
+from scanpy.plotting._dinamicplot import top_expressed_genes
 
 def export_data_to_csv(filename, pbmc, info):
     """

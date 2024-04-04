@@ -1,5 +1,9 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+from ._pca import pca
+from ..neighbors import neighbors
+from ..tools._umap import umap
+from ..tools._tsne import tsne
 
 def dimensionality_reduction(pbmc, input_data):
     """
@@ -39,10 +43,10 @@ def dimensionality_reduction(pbmc, input_data):
             raise ValueError("Invalid input. Please enter 'yes' or 'no'.")
         
         # recalculate the diferent matrix with the data left
-        sc.pp.pca(pbmc_red)
-        sc.pp.neighbors(pbmc_red)
-        sc.tl.umap(pbmc_red)
-        sc.tl.tsne(pbmc_red)
+        pca(pbmc_red)
+        neighbors(pbmc_red)
+        umap(pbmc_red)
+        tsne(pbmc_red)
         
     elif input_data == 'cell_types':
         # Display bar plot of cell type counts
@@ -72,9 +76,10 @@ def dimensionality_reduction(pbmc, input_data):
         
         pbmc_red = pbmc_red[pbmc_red.obs['louvain_cell_types'] != delete_cell_type]
         
-        sc.pp.neighbors(pbmc_red)
-        sc.tl.umap(pbmc_red)
-        sc.tl.tsne(pbmc_red)
+        pca(pbmc_red)
+        neighbors(pbmc_red)
+        umap(pbmc_red)
+        tsne(pbmc_red)
     else:
         raise ValueError("Invalid input_data. Please provide either 'highly_variable' or 'cell_types'.")
     
